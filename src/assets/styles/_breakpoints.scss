@@ -1,0 +1,36 @@
+$grid-breakpoints: (
+  // Extra small screen / phone
+  xs: 0,
+  // Small screen / phone
+  sm: 320px,
+  // Medium screen / tablet
+  md: 768px,
+  // Large screen / desktop
+  lg: 1024px,
+  // Extra large screen / wide desktop
+  xl: 1200px
+) !default;
+
+@mixin media-breakpoint($point) {
+  @if $point == xl {
+    @media (min-width: map-get($grid-breakpoints, xl)) {
+      @content;
+    }
+  } @else if $point == lg {
+    @media (max-width: map-get($grid-breakpoints, lg)) and (min-width: map-get($grid-breakpoints, md)) {
+      @content;
+    }
+  } @else if $point == md {
+    @media (max-width: map-get($grid-breakpoints, md)) and (min-width: map-get($grid-breakpoints, sm)) {
+      @content;
+    }
+  } @else if $point == sm {
+    @media (max-width: map-get($grid-breakpoints, sm)) and (min-width: map-get($grid-breakpoints, xs)) {
+      @content;
+    }
+  } @else if $point == xs {
+    @media (max-width: map-get($grid-breakpoints, xs)) {
+      @content;
+    }
+  }
+}

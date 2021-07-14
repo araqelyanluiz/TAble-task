@@ -1,0 +1,13 @@
+<div class="header">
+  <div class="container">
+    <div class="menu-bar">
+      <div class="logo">Dinamic info table</div>
+      <div class="tools">
+        <i class="fas fa-bars" (click)="toggleMenu()"></i>
+      </div>
+      <div class="side-bar" [class.show]="showSidebar">
+        <app-side-bar (closeMenu)="toggleMenu()"></app-side-bar>
+      </div>
+    </div>
+  </div>
+</div>

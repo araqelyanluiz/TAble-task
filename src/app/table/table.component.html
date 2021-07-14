@@ -1,0 +1,48 @@
+<div class="table-page">
+  <div class="page-header">
+    <h2>Таблица</h2>
+  </div>
+  <div class="page-body">
+    <div class="card">
+      <table class="full-width">
+        <thead>
+          <tr>
+            <th>Количество комнат</th>
+            <th>Квадратура</th>
+            <th>Адрес</th>
+            <th>Особенности/детали</th>
+            <th width="300">Картинки</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of data; let i = index">
+            <td>{{ item.roomsCount }}</td>
+            <td>{{ item.area }} кв.м</td>
+            <td>{{ item.address }}</td>
+            <td>
+              <ul>
+                <li *ngFor="let property of item.properties">
+                  {{ property.detailInfo }}
+                </li>
+              </ul>
+            </td>
+            <td width="300">
+              <div class="images">
+                <div class="img-item" *ngFor="let picture of item.pictures">
+                  <img [src]="picture.imageUrl" />
+                </div>
+              </div>
+            </td>
+            <td>
+              <i class="fas fa-trash-alt" (click)="delete(i)"></i>
+            </td>
+          </tr>
+          <tr *ngIf="data.length == 0">
+            <td colspan="5" class="no-data">No data available in table</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

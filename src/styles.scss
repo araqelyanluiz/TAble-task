@@ -1,0 +1,83 @@
+@import "assets/styles/_breakpoints";
+
+/* You can add global styles to this file, and also import other style files */
+html,
+html > body {
+  width: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Comfortaa", cursive;
+  font-size: 16px;
+  min-height: 100vh;
+  background-color: #f5f8ff;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 15px;
+  max-width: 1440px;
+}
+
+input,
+textarea {
+  border: 1px solid #d8d8d8;
+  border-radius: 5px;
+  padding: 5px 7px;
+  font-size: 14px;
+  font-family: inherit;
+  &:focus {
+    outline: none;
+    border-color: #000;
+  }
+}
+
+input {
+  min-height: 34px;
+}
+
+.area {
+  margin-bottom: 16px;
+  label {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  input,
+  textarea {
+    margin-top: 10px;
+  }
+}
+
+.full-width {
+  width: 100%;
+}
+
+button {
+  height: 36px;
+  padding: 5px 15px;
+  background: rgb(5, 66, 116);
+  color: #fff;
+  border: 1px solid rgb(5, 66, 116);
+  border-radius: 5px;
+  font-size: inherit;
+  font-weight: 500;
+}
+
+.hide {
+  display: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.card {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 3px 10px 0 rgb(0 0 0 / 10%);
+}

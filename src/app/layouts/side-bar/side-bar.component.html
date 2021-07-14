@@ -1,0 +1,97 @@
+<div class="sidebar-conetnt">
+  <div class="overlay-bg"></div>
+  <div class="sidebar-menu">
+    <div class="top">
+      <div class="title">
+        <h2>Добавление нового адреса</h2>
+      </div>
+      <div class="close">
+        <i class="fas fa-times-circle" (click)="close()"></i>
+      </div>
+    </div>
+    <div class="form">
+      <form [formGroup]="dataForm" (ngSubmit)="add()">
+        <div class="area">
+          <label>Количество комнат</label>
+          <input
+            type="number"
+            min="0"
+            class="full-width"
+            (change)="checkInput($event, 'roomsCount')"
+            formControlName="roomsCount"
+            placeholder="Количество комнат"
+          />
+        </div>
+        <div class="area">
+          <label>Квадратура</label>
+          <input
+            type="number"
+            min="0"
+            class="full-width"
+            (change)="checkInput($event, 'area')"
+            formControlName="area"
+            placeholder="Квадратура"
+          />
+        </div>
+        <div class="area">
+          <label>Адрес</label>
+          <input
+            type="text"
+            class="full-width"
+            formControlName="address"
+            placeholder="Адрес"
+          />
+        </div>
+
+        <div class="area">
+          <label>Особенности/детали</label>
+          <div class="add-details-button full-width" (click)="addDetail()">
+            <i class="fas fa-plus"></i>
+          </div>
+          <div formArrayName="properties">
+            <div
+              *ngFor="let detailsGroup of detailsInfo.controls; let i = index"
+              class="details-item"
+              [formGroupName]="i"
+            >
+              <textarea
+                class="full-width"
+                placeholder="Особенности/детали"
+                rows="3"
+                formControlName="detailInfo"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="upload-image area">
+          <label>Картинки (500x600)</label>
+          <div class="images full-width">
+            <div
+              *ngFor="let upload of uploadImages; let i = index"
+              class="image-item"
+            >
+              <img src="{{ upload.imageUrl }}" />
+              <i class="fas fa-times-circle" (click)="removeImage(i)"></i>
+            </div>
+            <div class="add-button" (click)="fileInput.click()">
+              <i class="fas fa-plus"></i>
+            </div>
+            <input
+              type="file"
+              id="imageUpload"
+              class="hide"
+              accept=".png, .jpg, .jpeg"
+              #fileInput
+              (change)="uploadImage($event)"
+              multiple="multiple"
+            />
+          </div>
+        </div>
+        <div class="button">
+          <button type="submit">Добавить</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
