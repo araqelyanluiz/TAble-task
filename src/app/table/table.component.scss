@@ -39,4 +39,27 @@
       color: #9c9c9c;
     }
   }
+  .pagination{
+    padding: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    .page-button{
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgb(255, 255, 255);
+      border: 1px solid #054274;
+      border-radius: 3px;
+      padding: 5px;
+      margin-right: 4px;
+      cursor:default;
+    }
+    .active{
+      background-color: #054274;
+      color: #fff;
+    }
+  }
 }

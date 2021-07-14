@@ -81,10 +81,11 @@ export class SideBarComponent implements OnInit {
     if (this.dataForm.invalid) {
       return;
     }
-
     this.service.setData(this.dataForm.value);
-
     this.dataForm.reset();
+    this.dataForm.controls.properties = this.fb.array([]);
+    this.uploadImages = []
+    this.addDetail()
     this.close();
   }
 }

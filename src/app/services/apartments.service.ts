@@ -15,12 +15,13 @@ export class ApartmentsService {
       ? JSON.parse(localStorage.getItem('dataSource') || '[]')
       : [];
 
-  get myData() {
-    return this.dataSource.value;
+  get getData() {
+    return this.dataSource.asObservable();
   }
 
   setData(item: any) {
     this.data.push(item);
+    console.log(this.data)
     localStorage.setItem('dataSource', JSON.stringify(this.data));
     this.dataSource.next(item);
   }
