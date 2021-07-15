@@ -5,11 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class ApartmentsService {
-  constructor() {
-    this.dataSource.next(this.data);
-  }
-
-  dataSource = new BehaviorSubject<any>({});
+  dataSource = new BehaviorSubject<any>(null);
   data: Array<any> =
     localStorage.getItem('dataSource') != null
       ? JSON.parse(localStorage.getItem('dataSource') || '[]')
@@ -19,9 +15,11 @@ export class ApartmentsService {
     return this.dataSource.asObservable();
   }
 
+  constructor() {
+  }
+
   setData(item: any) {
     this.data.push(item);
-    console.log(this.data)
     localStorage.setItem('dataSource', JSON.stringify(this.data));
     this.dataSource.next(item);
   }
